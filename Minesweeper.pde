@@ -8,7 +8,7 @@ void setup (){
     size(400, 400);
     textAlign(CENTER,CENTER);
     // make the manager
-    Interactive.make( this );
+    Interactive.make(this);
     
     //your code to initialize buttons goes here
     buttons = new MSButton[NUM_ROWS][NUM_COLS];
@@ -21,8 +21,7 @@ void setup (){
 }
 public void setMines(){
     mines.clear();
-    // Generate multiple random mines
-    int numMines = 3; // You can adjust this number as needed
+    int numMines = 3;
     while (mines.size() < numMines) {
         int ranRow = (int)(Math.random() * NUM_ROWS);
         int ranCol = (int)(Math.random() * NUM_COLS);
@@ -34,7 +33,7 @@ public void setMines(){
 }
 
 public void draw (){
-    background( 0 );
+    background(0);
     if(isWon() == true)
         displayWinningMessage();
 }
@@ -43,27 +42,25 @@ public boolean isWon(){
         for (int c = 0; c < NUM_COLS; c++) {
             MSButton button = buttons[r][c];
             if (!mines.contains(button) && !button.clicked) {
-                // Found a non-mine button that hasn't been clicked
-                return false; // Game is not won yet
+                return false;
             }
         }
     }
-    // All non-mine buttons have been clicked
-    return true; // Game is won
+    return true;
 }
 public void displayLosingMessage(){
-    for (MSButton mine : mines) {
+    for(MSButton mine : mines) {
         mine.clicked = true;
         mine.setLabel("You Lose!");
     }
-    //noLoop();
+    noLoop();
 }
 public void displayWinningMessage(){
-    for (MSButton mine : mines){
+    for(MSButton mine : mines){
         mine.clicked = true;
         mine.setLabel("You Win!");
     }
-    //noLoop();
+    noLoop();
 }
 public boolean isValid(int r, int c){
     if(r>=0 && c>= 0 && r<NUM_ROWS && c<NUM_COLS) return true;
