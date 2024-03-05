@@ -3,7 +3,7 @@ int NUM_ROWS = 7;
 int NUM_COLS = 7;
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> mines = new ArrayList <MSButton>(); //ArrayList of just the minesweeper buttons that are mined
-
+boolean gameOver = false;
 void setup (){
     size(400, 400);
     textAlign(CENTER,CENTER);
@@ -34,8 +34,12 @@ public void setMines(){
 
 public void draw (){
     background(0);
-    if(isWon() == true)
+    if (!gameOver && isWon()) {
         displayWinningMessage();
+    }
+    if (!gameOver && !isWon()) {
+        displayLosingMessage();
+    }
 }
 public boolean isWon(){
     for (int r = 0; r < NUM_ROWS; r++) {
@@ -53,14 +57,16 @@ public void displayLosingMessage(){
         mine.clicked = true;
         mine.setLabel("You Lose!");
     }
-    noLoop();
+    //noLoop();
+    gameOver = true;
 }
 public void displayWinningMessage(){
     for(MSButton mine : mines){
         mine.clicked = true;
         mine.setLabel("You Win!");
     }
-    noLoop();
+    //noLoop();
+    gameOver = true;
 }
 public boolean isValid(int r, int c){
     if(r>=0 && c>= 0 && r<NUM_ROWS && c<NUM_COLS) return true;
