@@ -65,6 +65,7 @@ public void displayLosingMessage(){
 public void displayWinningMessage(){
     for(MSButton mine : mines){
         mine.clicked = true;
+        fill(255);
         mine.setLabel("You Win!");
     }
     gameEnded = true;
