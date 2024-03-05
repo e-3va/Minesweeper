@@ -106,7 +106,7 @@ public class MSButton{
           int val = countMines(myRow, myCol);
           myLabel = Integer.toString(val);
         }
-        else mousePressed();
+        //else mousePressed();
     }
     public void draw () {    
         if (flagged)
