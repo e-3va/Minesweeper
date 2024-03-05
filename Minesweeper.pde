@@ -20,7 +20,7 @@ void setup (){
     setMines();
 }
 public void setMines(){
-    mines.clear();
+    //mines.clear();
     // Generate multiple random mines
     int numMines = 3; // You can adjust this number as needed
     while (mines.size() < numMines) {
