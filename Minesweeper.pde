@@ -104,7 +104,7 @@ public class MSButton{
           displayLosingMessage();
         else if(countMines(myRow,myCol)> 0){
           int val = countMines(myRow, myCol);
-          myLabel = Integer.toString(val);
+          myLabel = str(val);
         }
         //else mousePressed();
     }
