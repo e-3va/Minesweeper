@@ -53,16 +53,14 @@ public void displayLosingMessage(){
         mine.clicked = true;
         mine.setLabel("You Lose!");
     }
-    break;
-    //noLoop();
+    noLoop();
 }
 public void displayWinningMessage(){
     for(MSButton mine : mines){
         mine.clicked = true;
         mine.setLabel("You Win!");
     }
-    break;
-    //noLoop();
+    noLoop();
 }
 public boolean isValid(int r, int c){
     if(r>=0 && c>= 0 && r<NUM_ROWS && c<NUM_COLS) return true;
