@@ -53,6 +53,7 @@ public void displayLosingMessage(){
         mine.clicked = true;
         mine.setLabel("You Lose!");
     }
+    break;
     //noLoop();
 }
 public void displayWinningMessage(){
@@ -60,6 +61,7 @@ public void displayWinningMessage(){
         mine.clicked = true;
         mine.setLabel("You Win!");
     }
+    break;
     //noLoop();
 }
 public boolean isValid(int r, int c){
